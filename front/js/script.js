@@ -1,55 +1,21 @@
-function duplic() {
-    clone = document.getElementById('items').cloneNode(true);
-    clone.id = "test";
-}
+var sectionItems = document.querySelector('#items')
 
+var data = fetch('http://localhost:3000/api/products')
 
-const dataApi = fetch('http://localhost:3000/api/products');
+data
+    .then((response) => { return response.json() })
+    .then((products) => {
 
-dataApi.then(async(responseData) => {
+        products.forEach((product) => {
+            //  Ajout du code html dans la section
+            sectionItems.innerHTML += `<a href="./product.html?id=42">
+            <article>
+              <img src="${product.imageUrl}" alt="Lorem ipsum dolor sit amet, Kanap name1">
+              <h3 class="productName">${product.name}</h3>
+              <p class="productDescription">${product.description}</p>
+            </article>
+            </a>`
+        })
+    })
 
-    const response = await responseData.json();
-    console.log(response[0]);
-
-
-    try {
-        //Récupération
-
-        const name = response[0].name;
-        const description = response[0].description;
-        const image01 = response[0].imageUrl;
-        const altTxt = response[0].altTxt;
-
-
-        //Affichage
-
-        const affichage_name = document.querySelector('#items h3.productName');
-        const affichage_description = document.querySelector('#items p.productDescription');
-        const affichage_image01 = document.getElementsByTagName('img');
-
-
-
-        affichage_name.innerHTML = name;
-        affichage_description.innerHTML = description;
-        affichage_image01.insertAdjacentHtml(afterbegin, image01_imageUrl)
-
-
-        //Images
-
-
-        const image01_imageUrl = `<img src="${imageUrl}">`;
-
-
-
-
-
-
-    } catch (err) {
-        console.log(err);
-    }
-
-})
-
-.catch((err) => {
-    console.log(err);
-})
+console.log('start application...');
