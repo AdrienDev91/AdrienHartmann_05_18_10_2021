@@ -40,14 +40,13 @@ data
 
         //---------------------------------------------------------------------------------//
         var sectionColors = document.querySelector('#colors')
-        kanapColors.forEach((color) => {
+        var colors = [`${kanapColors[0]}`, `${kanapColors[1]}`, `${kanapColors[2]}`]
             //  Ajout du code html dans la section
-            sectionColors.innerHTML += `<option value="${kanapColors[0]}">${kanapColors[0]}</option>
-            <option value="${kanapColors[1]}">${kanapColors[1]}</option>
-            <option value="${kanapColors[2]}">${kanapColors[2]}</option>
-            `
-        })
 
+        for (let i = 0; i < colors.length; i++) {
+            sectionColors.innerHTML +=
+                `<option value="${colors}">${colors}</option>`
+        }
 
 
     })
