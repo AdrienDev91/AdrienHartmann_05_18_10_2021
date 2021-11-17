@@ -40,13 +40,16 @@ data
 
         //---------------------------------------------------------------------------------//
         var sectionColors = document.querySelector('#colors')
-        var colors = [`${kanapColors[0]}`, `${kanapColors[1]}`, `${kanapColors[2]}`]
-            //  Ajout du code html dans la section
+        var colors = [`${kanapColors[0]}`, `${kanapColors[1]}`, `${kanapColors[2]}`, `${kanapColors[3]}`]
+
+        //  Ajout du code html dans la section
 
         for (let i = 0; i < colors.length; i++) {
+            var color = colors[i]
             sectionColors.innerHTML +=
-                `<option value="${colors}">${colors}</option>`
+                `<option value="${color}">${color}</option>`
+
         }
 
-
+        // Si l'objet colors ne comporte 
     })
