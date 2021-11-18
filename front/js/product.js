@@ -42,7 +42,7 @@ data
         var sectionColors = document.querySelector('#colors')
         var colors = [`${kanapColors[0]}`, `${kanapColors[1]}`, `${kanapColors[2]}`, `${kanapColors[3]}`]
 
-        //  Ajout du code html dans la section
+        //  Ajout du code html dans la section à l'aide d'une boucle for
 
         for (let i = 0; i < colors.length; i++) {
             var color = colors[i]
@@ -50,6 +50,34 @@ data
                 `<option value="${color}">${color}</option>`
 
         }
+        //Création objet pour panier
+        let optionProduct = {
+            name: response.name,
+            id: response._id,
+            price: response.price,
+            colors: response.colors
 
-        // Si l'objet colors ne comporte 
+        };
+        console.log(optionProduct);
+
     })
+
+//fonction pour ajouter un produit au panier quand on clique sur "Ajouter au panier"?
+//Puis l'assigner à un addEventListener ?
+
+
+
+
+
+//----------Local Storage------------//
+
+/*let saveProductLocalStorage = JSON.parse(localStorage.getItem("kanap"));
+
+if (saveProductLocalStorage) {
+
+} else {
+    saveProductLocalStorage = [];
+    saveProductLocalStorage.push(optionProduct);
+    localStorage.setItem("kanap", JSON.stringify())
+    console.log(saveProductLocalStorage);
+}*/
