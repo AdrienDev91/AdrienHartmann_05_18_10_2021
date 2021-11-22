@@ -50,27 +50,39 @@ data
                 `<option value="${color}">${color}</option>`
 
         }
-        //Création objet pour panier
-        let optionProduct = {
-            id: response._id,
-            color: response.colors,
-            quantity: 1
 
-        };
-        //console.log(optionProduct);
+
+        var sendToCart = document.querySelector('#addToCart');
+        //console.log(sendToCart);
+
+        sendToCart.addEventListener("click", (event) => {
+            event.preventDefault();
+
+            // Récupérer couleur choisie par l'utilisateur
+            var colorChoice = document.querySelector('#colors');
+            var UserColorChoice = colorChoice.value;
+
+
+            // Récupérer quantité choisie par l'utilisateur
+            var quantityChoice = document.querySelector('#quantity');
+            var UserQuantityChoice = quantityChoice.value;
+
+            let optionProduct = {
+                id: response._id,
+                color: UserColorChoice,
+                quantity: UserQuantityChoice,
+
+            };
+
+            console.log(optionProduct);
+        });
+
+
+
+
+
 
     })
-
-var colorOption = document.querySelector('#colors')
-    //console.log(colorOption);
-
-var colorChoice = colorOption.option
-console.log(colorChoice);
-
-
-
-
-
 
 
 
