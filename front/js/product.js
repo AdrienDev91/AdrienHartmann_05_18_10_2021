@@ -44,7 +44,7 @@ data
 
         //  Ajout du code html dans la section à l'aide d'une boucle for
 
-        for (let i = 0; i < colors.length; i++) {
+        for (let i = 0; i < kanapColors.length; i++) {
             var color = colors[i]
             sectionColors.innerHTML +=
                 `<option value="${color}">${color}</option>`
@@ -52,18 +52,23 @@ data
         }
         //Création objet pour panier
         let optionProduct = {
-            name: response.name,
             id: response._id,
-            price: response.price,
-            colors: response.colors
+            color: response.colors,
+            quantity: 1
 
         };
-        console.log(optionProduct);
+        //console.log(optionProduct);
 
     })
 
-//fonction pour ajouter un produit au panier quand on clique sur "Ajouter au panier"?
-//Puis l'assigner à un addEventListener ?
+var colorOption = document.querySelector('#colors')
+    //console.log(colorOption);
+
+var colorChoice = colorOption.option
+console.log(colorChoice);
+
+
+
 
 
 
