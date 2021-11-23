@@ -73,8 +73,23 @@ data
                 quantity: UserQuantityChoice,
 
             };
+            //console.log(optionProduct);
 
-            console.log(optionProduct);
+            //----------Local Storage------------//
+
+            let saveProductLocalStorage = JSON.parse(localStorage.getItem("product"));
+            console.log(saveProductLocalStorage);
+
+            if (saveProductLocalStorage) {
+                saveProductLocalStorage.push(optionProduct);
+                localStorage.setItem("product", JSON.stringify(saveProductLocalStorage));
+
+            } else {
+                saveProductLocalStorage = [];
+                saveProductLocalStorage.push(optionProduct);
+                localStorage.setItem("product", JSON.stringify(saveProductLocalStorage));
+                //console.log(saveProductLocalStorage);
+            }
         });
 
 
@@ -83,18 +98,3 @@ data
 
 
     })
-
-
-
-//----------Local Storage------------//
-
-/*let saveProductLocalStorage = JSON.parse(localStorage.getItem("kanap"));
-
-if (saveProductLocalStorage) {
-
-} else {
-    saveProductLocalStorage = [];
-    saveProductLocalStorage.push(optionProduct);
-    localStorage.setItem("kanap", JSON.stringify())
-    console.log(saveProductLocalStorage);
-}*/
