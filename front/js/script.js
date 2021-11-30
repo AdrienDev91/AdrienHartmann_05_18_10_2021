@@ -1,5 +1,6 @@
 var sectionItems = document.querySelector('#items')
 
+
 var data = fetch('http://localhost:3000/api/products')
 
 data
