@@ -8,7 +8,7 @@ cart = JSON.parse(cart)
 for (let i = 0; i < cart.length; i++) {
     //console.log(cart.length);
     const product = cart[i];
-    console.log(product);
+    //console.log(product);
     cartItem.innerHTML += `<article class="cart__item" data-id="${product.id}">
             <div class="cart__item__img">
               <img src="${product.image}" alt="">
@@ -30,4 +30,17 @@ for (let i = 0; i < cart.length; i++) {
             </div>
           </article>`
 
+}
+let deleteItem = document.querySelectorAll(".deleteItem");
+console.log(deleteItem);
+
+for (let j = 0; j < cart.length; j++) {
+
+    deleteItem[j].addEventListener("click", (event) => {
+        event.preventDefault();
+
+        let selectIdToDelete = cart[j].id;
+        console.log(selectIdToDelete);
+
+    })
 }

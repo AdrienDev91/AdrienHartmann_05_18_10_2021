@@ -71,14 +71,14 @@ AddToCartButton.addEventListener("click", (event) => {
         color: UserColorChoice,
         quantity: UserQuantityChoice,
         image: productImg,
-        price: productPrice,
+        price: productPrice * UserQuantityChoice,
         name: productName,
     };
     console.log(product);
 
     // Condition qui verifiera la couleur existe dans le panier
     // Si Oui 
-    if (product.id, UserColorChoice == true) {
+    if (id, UserColorChoice == true) {
         updateQuantity()
 
     } // Si Non
