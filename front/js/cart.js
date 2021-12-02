@@ -1,27 +1,22 @@
 var cartItem = document.querySelector("#cart__items");
-
 var cart = localStorage.getItem('cart');
 cart = JSON.parse(cart)
-console.log(cart);
-
-var data = fetch(`http://localhost:3000/api/products`)
-
-data
-    .then((response) => { return response.json() })
-    .then((kanap) => {
+    //console.log(cart);
 
 
-        for (let i = 0; i < cart.length; i++) {
-            const product = cart[i];
-            //console.log(cart.length);
-            cartItem.innerHTML += `<article class="cart__item" data-id="${product.id}">
+
+for (let i = 0; i < cart.length; i++) {
+    //console.log(cart.length);
+    const product = cart[i];
+    console.log(product);
+    cartItem.innerHTML += `<article class="cart__item" data-id="${product.id}">
             <div class="cart__item__img">
-              <img src="" alt="IMAGE">
+              <img src="${product.image}" alt="">
             </div>
             <div class="cart__item__content">
               <div class="cart__item__content__titlePrice">
-                <h2>NOM</h2>
-                <p>PRIX</p>
+                <h2>${product.name}</h2>
+                <p>${product.price}</p>
               </div>
               <div class="cart__item__content__settings">
                 <div class="cart__item__content__settings__quantity">
@@ -34,6 +29,5 @@ data
               </div>
             </div>
           </article>`
-        }
 
-    })
+}

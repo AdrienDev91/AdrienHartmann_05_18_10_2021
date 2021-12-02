@@ -53,12 +53,26 @@ AddToCartButton.addEventListener("click", (event) => {
     var quantityChoice = document.querySelector('#quantity');
     var UserQuantityChoice = quantityChoice.value;
 
+    // Récupérer image du produit
+    var image = document.getElementsByTagName("img").item(5).src;
+    var productImg = image;
+
+    // Récupérer prix produit
+    var price = document.querySelector("#price").innerHTML;
+    var productPrice = price;
+
+    //Récupérer nom produit
+    var name = document.querySelector("#title").innerHTML;
+    var productName = name;
+
+
     let product = {
         id: id,
         color: UserColorChoice,
         quantity: UserQuantityChoice,
-
-
+        image: productImg,
+        price: productPrice,
+        name: productName,
     };
     console.log(product);
 
