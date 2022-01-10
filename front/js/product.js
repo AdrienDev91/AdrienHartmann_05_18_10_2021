@@ -46,39 +46,39 @@ AddToCartButton.addEventListener("click", (event) => {
 
     // Récupérer couleur choisie par l'utilisateur
     var colorChoice = document.querySelector('#colors');
-    var UserColorChoice = colorChoice.value;
+    var color = colorChoice.value;
 
 
     // Récupérer quantité choisie par l'utilisateur
     var quantityChoice = document.querySelector('#quantity');
-    var UserQuantityChoice = quantityChoice.value;
+    var quantity = quantityChoice.value;
 
     // Récupérer image du produit
-    var image = document.getElementsByTagName("img").item(5).src;
-    var productImg = image;
+    var productImg = document.getElementsByTagName("img").item(5).src;
+    var image = productImg;
 
     // Récupérer prix produit
-    var price = document.querySelector("#price").innerHTML;
-    var productPrice = price;
+    var productPrice = document.querySelector("#price").innerHTML;
+    var price = productPrice;
 
     //Récupérer nom produit
-    var name = document.querySelector("#title").innerHTML;
-    var productName = name;
+    var productName = document.querySelector("#title").innerHTML;
+    var name = productName;
 
 
-    let product = {
+    var product = {
         id: id,
-        color: UserColorChoice,
-        quantity: UserQuantityChoice,
-        image: productImg,
-        price: productPrice * UserQuantityChoice,
-        name: productName,
+        color: color,
+        quantity: quantity,
+        image: image,
+        price: price * quantity,
+        name: name,
     };
     console.log(product);
 
     // Condition qui verifiera la couleur existe dans le panier
     // Si Oui 
-    if (id, UserColorChoice == true) {
+    if (color == color) {
         updateQuantity()
 
     } // Si Non
@@ -86,9 +86,8 @@ AddToCartButton.addEventListener("click", (event) => {
         addToCart(product)
     }
 
-
-
 });
+
 
 function addToCart(product) {
     alert('Product Added to cart ..')
@@ -96,11 +95,11 @@ function addToCart(product) {
     localStorage.setItem("cart", JSON.stringify(cart))
 }
 
-/*function updateQuantity() {
+function updateQuantity() {
     // recuperer l'item du produit
-
-    // Modifier la qty
-
-    // Enregistrer le panier
-
-}*/
+    if (cart.id == id) {
+        // Modifier la qty
+        product.quantity += quantity;
+    }
+    localStorage.setItem("cart", JSON.stringify(cart))
+}

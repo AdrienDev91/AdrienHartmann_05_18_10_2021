@@ -32,7 +32,7 @@ for (let i = 0; i < cart.length; i++) {
 
 }
 let deleteItem = document.querySelectorAll(".deleteItem");
-console.log(deleteItem);
+//console.log(deleteItem);
 
 for (let j = 0; j < cart.length; j++) {
 
@@ -40,7 +40,7 @@ for (let j = 0; j < cart.length; j++) {
         event.preventDefault();
 
         let selectIdToDelete = cart[j].id;
-        console.log(selectIdToDelete);
+        localStorage.removeItem()
 
     })
 }
