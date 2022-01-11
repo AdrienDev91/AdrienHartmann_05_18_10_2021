@@ -78,9 +78,9 @@ AddToCartButton.addEventListener("click", (event) => {
 
     // Condition qui verifiera la couleur existe dans le panier
     // Si Oui 
-    if (color == color) {
-        updateQuantity()
-
+    if (cart) {
+        updateQuantity(product)
+        localStorage.setItem("cart", JSON.stringify(cart))
     } // Si Non
     else {
         addToCart(product)
@@ -95,11 +95,13 @@ function addToCart(product) {
     localStorage.setItem("cart", JSON.stringify(cart))
 }
 
-function updateQuantity() {
-    // recuperer l'item du produit
-    if (cart.id == id) {
-        // Modifier la qty
-        product.quantity += quantity;
+function updateQuantity(product) {
+    const object = cart.find(element => element.id === product.id && element.color === product.color);
+    if (object) {
+        const n = parseInt(object.quantity);
+        const m = parseInt(product.quantity);
+        object.quantity = (n + m).toString();
+    } else {
+        cart.push(product)
     }
-    localStorage.setItem("cart", JSON.stringify(cart))
 }
