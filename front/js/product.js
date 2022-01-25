@@ -76,7 +76,7 @@ AddToCartButton.addEventListener("click", (event) => {
     };
     console.log(product);
 
-    // Condition qui verifiera la couleur existe dans le panier
+    // Condition qui verifiera si la couleur et l'id existe dans le panier
     // Si Oui 
     if (cart) {
         updateQuantity(product)

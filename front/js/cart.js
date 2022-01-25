@@ -2,7 +2,7 @@ var cartItem = document.querySelector("#cart__items");
 var cart = localStorage.getItem('cart');
 cart = JSON.parse(cart)
     //console.log(cart);
-
+const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
 
 for (let i = 0; i < cart.length; i++) {
@@ -31,16 +31,50 @@ for (let i = 0; i < cart.length; i++) {
           </article>`
 
 }
-let deleteItem = document.querySelectorAll(".deleteItem");
-//console.log(deleteItem);
+////////////////
+
+var totalPriceArray = [];
 
 for (let j = 0; j < cart.length; j++) {
+    let cartProductPrice = cart[j].price;
+    totalPriceArray.push(cartProductPrice)
+    console.log(totalPriceArray);
 
-    deleteItem[j].addEventListener("click", (event) => {
-        event.preventDefault();
-
-        let selectIdToDelete = cart[j].id;
-        localStorage.removeItem()
-
-    })
 }
+
+const totalPrice = totalPriceArray.reduce(reducer, 0);
+console.log(totalPrice);
+
+const prixTotal = document.getElementById("totalPrice")
+prixTotal.innerHTML = totalPrice
+
+
+//////////////////
+
+var totalQuantityArray = [];
+
+for (let h = 0; h < cart.length; h++) {
+    let cartProductQuantity = cart[h].quantity;
+    totalQuantityArray.push(cartProductQuantity);
+
+    console.log(totalQuantityArray);
+
+}
+
+const totalQuantity = totalQuantityArray.reduce(reducer, 0);
+
+console.log(totalQuantity);
+
+const quantiteTotal = document.getElementById("totalQuantity")
+quantiteTotal.innerHTML = totalQuantity
+
+
+////////////////////
+
+var deleteItemButton = document.querySelector(".deleteItem")
+
+
+deleteItemButton.addEventListener("click", (event) => {
+    event.preventDefault();
+
+});
